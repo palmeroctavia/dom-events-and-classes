@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', start)
 
 function start () {
-  bindEventListeners(document.getElementsByClassName('board')[0].children)
+  bindEventListeners(document.getElementsByClassName('board')[0].children);
 }
 
 function bindEventListeners (dots) {
@@ -40,10 +40,26 @@ function updateCounts () {
   var totals = {
     blue: 0,
     green: 0,
-    invisible: 0
+    invisible: 0,
   }
 
   // WRITE CODE HERE TO COUNT BLUE, GREEN, AND INVISIBLE DOTS
+  var allDots = document.getElementsByClassName('board')[0].children;
+
+    console.log(allDots);
+
+    //for (var i = 0; i =< 9; i++) {
+    for (var i = 0; i < allDots.length; i++) {
+      if (allDots[i].classList.contains('blue')) {
+        totals.blue ++;
+      }
+      if (allDots[i].classList.contains('green')) {
+        totals.green ++;
+      }
+      if (allDots[i].classList.contains('invisible')) {
+        totals.invisible ++;
+      }
+    }
 
   // Once you've done the counting, this function will update the display
   displayTotals(totals)
